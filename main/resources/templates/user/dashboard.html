@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title data-th-text="${loggedUser.name}+' | SmartContactManager'">Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="content">
+
+        <!-- for side bar -->
+        
+        <!-- if user is logged in : navbar -->
+        <div th:if="${loggedUser}">
+            <div data-th-replace="~{user/sidebar::sidebar}"></div>
+        </div>
+
+        <div class="sm:pl-64 pt-20" style="height: 1000px;">
+            <div class="flex justify-center flex-col items-center">
+                <h1 class="text-3xl font-bold">This is Dashboard page</h1>
+                <p class="mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, fugit. Recusandae est quasi excepturi accusamus provident, id ea nobis, deleniti velit maxime dolor inventore earum, quas odit ut neque pariatur!</p>
+                
+                <!-- Total Contacts Section
+                <div class="mt-8 w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg p-6">
+                        <h2 class="text-xl font-semibold">Total Contacts</h2>
+                        <p class="text-2xl font-bold" data-th-text="${totalContacts}">0</p>
+                    </div>
+                </div> -->
+
+                <!-- Favorite Contacts Section
+                <div class="mt-8 w-full max-w-md">
+                    <div class="bg-white shadow-md rounded-lg p-6">
+                        <h2 class="text-xl font-semibold">Favorite Contacts</h2>
+                        <ul class="mt-4">
+                            <li th:each="contact : ${favoriteContacts}" class="flex justify-between items-center border-b border-gray-300 py-2">
+                                <span data-th-text="${contact.name}">Contact Name</span>
+                                <span data-th-text="${contact.phone}">Contact Phone</span>
+                            </li>
+                        </ul>
+                        <p th:if="${#lists.isEmpty(favoriteContacts)}" class="text-gray-500 mt-2">No favorite contacts found.</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        console.log("This is dashboard");
+    </script>
+</body>
+</html>
